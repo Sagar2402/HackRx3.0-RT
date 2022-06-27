@@ -1,0 +1,228 @@
+$nav-color: #181027;
+$tile-color: #F5737F;
+$notif-tile: #ffccd1;
+
+.layout-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    .layout-navbar {
+        width: 100vw;
+        height: 12vh;
+        padding: 10px;
+        background-color: $nav-color;
+        display: flex;
+        justify-content: space-between;
+        .brand {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            color: white;
+            font-size: 1.3rem;
+            p {
+                font-size: 1.4rem;
+            }
+            img {
+                height: 100%;
+            }
+        }
+        i:nth-child(1) {
+            display: none;
+        }
+        i:nth-child(2) {
+            background-color: transparent;
+            margin: auto 0;
+            color: white;
+            font-size: 1.3rem;
+            margin-right: 10px;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+    .dash-wrapper {
+        .notif-wrapper {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            width: calc(100% - 17%);
+            height: 88vh;
+            position: absolute;
+            left: 17%;   
+            .notif-box {
+                width: 33%;
+                position: absolute;
+                right: 10px;
+                margin-top: -20px;
+                min-height: 33%;
+                max-height: 55%;
+                overflow-y: scroll;
+                border-radius: 10px;
+                background-color: white;
+                padding: 10px;
+                .notif-tile {
+                    background-color: $notif-tile;
+                    border-radius: 5px;
+                    width: 100%;
+                    min-height: 60px;
+                    height: fit-content;
+                    padding: 8px;
+                    margin: 5px 0;
+                    .notif-head {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-right: 10px;
+                        h6 {
+                            font-size: 1.2rem;
+                        }
+                    }
+                    p {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        .notif-wrapper.active {
+            display: block;
+        }
+        .sidebar {
+            width: 17%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            z-index: 300;
+            .cross {
+                display: none;
+                color: white;
+            }
+            .side-nav {
+                height: 80%;                
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                color: white;
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+                .side-nav-link {
+                    width: 170px;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 10px;
+                    padding: 10px;
+                    margin: 5px 0;
+                    font-weight: 800;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    span {
+                        line-height: 100%;
+                        margin-right: 10px;
+                    }
+                }
+                .side-nav-link.active {
+                    background-color: $tile-color;
+                    transition-duration: 500ms;
+                }
+            }
+            .side-footer {
+                width: 100%;
+                height: fit-content;
+                padding: 2rem 1rem;
+                border-top: 2px solid grey;
+                text-align: center;
+                color: white;
+                h4 {
+                    font-size: 1.4rem;
+                }
+                .buttons {
+                    -webkit-appearance: none;
+                    display: flex;
+                    margin: 20px;
+                    justify-content: center;
+                    button {
+                        -webkit-appearance: none;
+                        border: 0;
+                        padding: 5px 15px;
+                        margin: 5px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+        .content-area {
+            position: absolute;
+            height: 88vh;
+            width: calc(100% - 17%);
+            left: 17%;
+            top: 12vh;
+            padding: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+            overflow-y: scroll;
+            .Inclaim-wrapper {
+                position: absolute;
+                top: 40%;
+                transform: rotate(90deg);
+                z-index: -10;
+                right: 0;
+                img {
+                    filter: opacity(7%)
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .layout-wrapper {
+        .layout-navbar {
+            justify-content: space-between;
+            i:first-child {
+                margin: 0 20px;
+                display: block;
+            }
+            i:last-child {
+                display: none;
+            }
+        }
+        .dash-wrapper {
+            .notif-wrapper {
+                width: 100%;
+                left: 0;
+            }
+            .sidebar {
+                display: none;
+                background-color: black;
+                .cross {
+                    display: block;
+                    padding: 20px;
+                    margin-left: auto;
+                    font-size: 1.4rem;
+                }
+            }
+            .content-area {
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                .Inclaim-wrapper {
+                    right: -150px;
+                }
+            }
+        }
+        .dash-wrapper.active {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 70%;
+                display: flex;
+                margin-left: 0;
+            }
+        }
+    }
+}

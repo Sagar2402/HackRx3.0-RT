@@ -1,0 +1,233 @@
+version: "3.1"
+
+actions:
+  - actions.GetAnswer
+  - actions.ApiAnswer
+  - actions.HealthInsurance
+  - actions.MotorInsurance
+  - actions.Buy
+  - actions.Greet
+  - actions.Insurance
+  - utter_slots_values
+  - actions.PostClaimDesc
+  - actions.PostHealthInsuDesc
+  - actions.PostMotorTwoDesc
+  - actions.PostMotorFourDesc
+
+
+forms:
+  name_form:
+    required_slots:
+      - cause
+      - description
+
+  insurance_adult_form:
+    required_slots:
+      - name 
+      - age
+      #- id
+
+  motor_four_form:
+    required_slots:
+      - name1 
+      - age1
+      #- id1
+
+  motor_two_form:
+    required_slots:
+      - name2 
+      - age2
+      #- id2
+
+slots:
+  cause:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: cause
+  description:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: description
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: insurance_adult_form
+           requested_slot: name
+  age:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: insurance_adult_form
+           requested_slot: age
+  # id:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #        - active_loop: insurance_adult_form
+  #          requested_slot: id
+
+  name1:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: motor_four_form
+           requested_slot: name1
+  age1:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: motor_four_form
+           requested_slot: age1
+  # id1:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #        - active_loop: motor_four_form
+  #          requested_slot: id1
+  name2:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: motor_two_form
+           requested_slot: name2
+  age2:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: motor_two_form
+           requested_slot: age2
+  
+  # id2:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #        - active_loop: motor_two_form
+  #          requested_slot: id2
+# slots: 
+#   name:
+#   type: text
+#   mappings:
+#   - type: from_intent
+#     intent: health_insurance
+
+# forms:
+#   health_insurance_form:
+#     required_slots:
+#       -name
+  
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - qn
+  - health_insurance
+  - motor_insurance
+  - insurance
+  - hl1
+  - hl2
+  - ml1
+  - ml2
+  - buy_now
+  - claim_details
+  - insurance_adult
+  - motor_four
+  - motor_two
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ml1:
+  - text: "Here's your link for the claim :"
+
+  utter_hl1:
+  - text: "Here's your link for the claim :"
+
+  utter_ml2:
+  - text: "Here's your link for the claim :"
+
+  utter_hl2:
+  - text: "Here's your link for the claim :"
+
+  utter_ask_cause:
+  - text: What is the cause?
+  utter_ask_description:
+  - text: Describe the cause in details
+
+  utter_ask_name:
+  - text: What is your name?
+  utter_ask_age:
+  - text: What is your age
+  # utter_ask_id:
+  # - text: Enter Insurance ID
+
+  utter_ask_name1:
+  - text: Four-Wheeler-Type
+  utter_ask_age1:
+  - text: Miles travelled by four wheeler
+  # utter_ask_id1:
+  # - text: Enter Insurance ID
+
+  utter_ask_name2:
+  - text: Two-Wheeler Type
+  utter_ask_age2:
+  - text: Miles travelled by two wheeler
+  # utter_ask_id2:
+  # - text: Enter Insurance ID
+
+  utter_slots_values:
+  - text: Inputs Noted
+
+
+
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

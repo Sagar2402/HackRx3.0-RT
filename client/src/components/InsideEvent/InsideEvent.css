@@ -1,0 +1,180 @@
+.fa-ticket {
+  color: #a974ff;
+}
+
+.small-font {
+  font-size: 0.8rem;
+}
+
+.grey {
+  color: #c4c4c4;
+}
+
+.public-details {
+  padding: 10% 5%;
+}
+
+.event-details, .reg-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: white;
+}
+
+.event-details .back-events a, .reg-area .back-events a {
+  text-decoration: none;
+}
+
+.event-details .back-events a:hover, .reg-area .back-events a:hover {
+  color: white;
+}
+
+.event-details button, .reg-area button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 10px 0;
+  color: #a974ff;
+  border: 1.5px solid #a974ff;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 6px 20px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.event-details button:hover, .reg-area button:hover {
+  background-color: #a974ff;
+  color: #100b1b;
+}
+
+.event-details .event-group, .reg-area .event-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  margin: 10px 0;
+}
+
+.event-details .event-group .event-data .fa, .reg-area .event-group .event-data .fa {
+  color: #a974ff;
+}
+
+.event-details .event-group .event-data div p, .reg-area .event-group .event-data div p {
+  font-size: 1.4rem;
+}
+
+.event-details .event-group .event-data p:last-child, .reg-area .event-group .event-data p:last-child {
+  font-size: 1.2rem;
+}
+
+.event-details .cat-event, .reg-area .cat-event {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.event-details .cat-event img, .reg-area .cat-event img {
+  height: 90px;
+  border-radius: 50%;
+}
+
+.event-details .cat-event .name-type p:first-child, .reg-area .cat-event .name-type p:first-child {
+  font-size: 1.3rem;
+}
+
+.event-details .cat-event .name-type p:last-child, .reg-area .cat-event .name-type p:last-child {
+  font-size: 1.8rem;
+}
+
+.reg-modal-content {
+  padding: 10px;
+}
+
+.reg-modal-content .close-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.reg-modal-content .close-bar i {
+  cursor: pointer;
+}
+
+.reg-modal-content .close-bar i:hover {
+  color: #f5737f;
+}
+
+.reg-modal-content .reg-area {
+  margin: 15px 0;
+}
+
+.reg-modal-content .reg-area button:not(.create) {
+  border: 0;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 0;
+  background-color: white;
+}
+
+.reg-modal-content .reg-area .create {
+  border: 0;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 0;
+  margin: 10px 0;
+  color: white;
+  background-color: #f5737f;
+}
+
+.input-team {
+  color: #dadada;
+  background-color: rgba(37, 37, 37, 0.123);
+  width: 400px;
+}
+
+.team-reg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.ReactModal__Content {
+  width: 25%;
+}
+
+@media screen and (max-width: 812px) {
+  .ReactModal__Content {
+    width: 97%;
+  }
+  .cat-event img {
+    height: 70px;
+  }
+  .public-details {
+    padding-top: 40%;
+  }
+}
+/*# sourceMappingURL=InsideEvent.css.map */

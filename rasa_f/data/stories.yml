@@ -1,0 +1,103 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive story 1
+  steps:
+  - intent: claim_details
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: cause
+  - slot_was_set:
+    - cause: vincent
+  - slot_was_set:
+    - requested_slot: description
+  - slot_was_set:
+    - description: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots_values
+  - action: actions.PostClaimDesc
+
+- story: interactive story 2
+  steps:
+  - intent: insurance_adult
+  - action: insurance_adult_form
+  - active_loop: insurance_adult_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - cause: vincent
+  - slot_was_set:
+    - requested_slot: age
+  - slot_was_set:
+    - description: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  #- action: utter_slots_values
+  - action: actions.PostHealthInsuDesc
+
+
+
+- story: interactive story 3
+  steps:
+  - intent: motor_four
+  - action: motor_four_form
+  - active_loop: motor_four_form
+  - slot_was_set:
+    - requested_slot: name1
+  - slot_was_set:
+    - cause: vincent
+  - slot_was_set:
+    - requested_slot: age1
+  - slot_was_set:
+    - description: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  #- action: utter_slots_values
+  - action: actions.PostMotorFourDesc
+
+
+- story: interactive story 4
+  steps:
+  - intent: motor_two
+  - action: motor_two_form
+  - active_loop: motor_two_form
+  - slot_was_set:
+    - requested_slot: name2
+  - slot_was_set:
+    - cause: vincent
+  - slot_was_set:
+    - requested_slot: age2
+  - slot_was_set:
+    - description: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  #- action: utter_slots_values
+  - action: actions.PostMotorTwoDesc

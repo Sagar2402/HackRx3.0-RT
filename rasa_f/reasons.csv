@@ -1,0 +1,8 @@
+type,reason,rate
+motor,fire explosion,96
+motor,riot,93
+motor,flood,90
+motor,burglary,87
+motor,accident,75
+motor,wheel tyre,51
+motor,windows,42

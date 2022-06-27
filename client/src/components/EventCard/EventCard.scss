@@ -1,0 +1,174 @@
+@import './../../styles/index.scss';
+$event-card-background-1: #c29efc;
+$event-card-background-2: #8e49fc; 
+.event-back-1 {
+  background-color: $event-card-background-1;
+}
+.event-back-2 {
+  background-color: $event-card-background-2;
+}
+.event-card-wrapper {
+  @include card-hover;
+  width: calc(83% / 2.6);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  min-height: 350px;
+  padding: 18px 25px;
+  background-image: url("./../../assets/swivel.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  border-radius: 0.5rem;
+  .event-content {
+    height: 100%;
+    z-index: 100;
+    position: relative;
+    .event-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 10px;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      color: white;
+      .event-area {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        p {
+          font-size: 0.95rem;
+        }
+        h3 {
+          font-size: 1.4rem;
+        }
+      }
+      .button-area {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        
+        width: 30%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: flex-start;
+            -ms-flex-pack: flex-start;
+                justify-content: flex-start;
+              .mode{
+                background-color: transparent;
+                border-radius: 5px;
+                border: 1px solid #181027;
+              }
+              .det{
+                margin-top: 10px;
+                cursor: pointer;
+                width: 100%;
+                background-color: #181027;
+                border-radius: 5px;
+                border: 1px solid #181027;
+                color: white;
+              }
+              .det:hover{
+                
+                background-color: white;
+                color: #181027;
+                border: 1px solid #ffffff;
+              }
+        // uncomment for details button 
+        button:first-child {
+          border: 1.5px solid #181027;
+          color: #181027;
+          margin-bottom: 2.5px;
+          border-radius: 10px;
+          background-color: transparent;
+          padding: 2px 4px;
+          text-transform: uppercase;
+          
+          pointer-events: none;
+        }
+        button:last-child {
+          pointer-events: none;
+          border: 0;
+          width: 100%;
+          margin-top: 2.5px;
+          border-radius: 10px;
+          background-color: transparent;
+          padding: 2px 4px;
+          text-transform: uppercase;
+          background-color: #181027;
+          color: white;
+        }
+      }
+    }
+    .tags-line {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 4px;
+      color: #3d2761;
+      font-size: 0.9rem;
+    }
+    .description {
+      margin: 8px 0px;
+      line-height: 20px;
+      max-height: 140px;
+      font-size: 1rem;
+      width:100%;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+    }
+    .data-area {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 10px;
+      .box-wrapper{
+        // position: absolute;
+        // bottom: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+      .box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0 0.7rem 0 0 ;
+        color: white;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+       
+      }
+    }
+  }
+}
+@media only screen and (max-width: 812px) {
+  .event-card-wrapper {
+    width: 100%;
+    padding: 15px;
+    .event-content {
+      .event-header {
+        .button-area{ 
+          width: 40%;
+          button:first-child {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

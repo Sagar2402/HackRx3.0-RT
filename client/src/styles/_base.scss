@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+html {
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: 'Korolev Medium';
+  src: url('./fonts/korolev-heavy-cdnfonts/Korolev\ Medium.otf')
+    format('opentype');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Korolev Bold';
+  src: url('./fonts/korolev-heavy-cdnfonts/Korolev\ Heavy.otf')
+    format('opentype');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Korolev Light';
+  src: url('./fonts/korolev-heavy-cdnfonts/Korolev\ Light.otf')
+    format('opentype');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Antiga';
+  src: url('./fonts/Antiga-Regular.otf')
+    format('opentype');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+body {
+  background-color: #100b1b;
+  overflow: hidden;
+}
+.font-light {
+  font-family: 'Korolev Light';
+}
+.font-medium {
+  font-family: 'Korolev Medium';
+}
+.font-heavy {
+  font-family: 'Korolev Bold';
+}
+.font-antiga {
+  font-family: 'Antiga';
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  border-radius: 10px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* need to change gradient colour */
+  background: linear-gradient(to right, #a123db 0%, rgb(196, 58, 58));
+  opacity: 0.5;
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+button:active,
+button:focus {
+  outline: none;
+}
+input:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+// custom modal style
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.8)!important;
+  z-index: 200;
+}

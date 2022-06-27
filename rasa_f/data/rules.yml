@@ -1,0 +1,139 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: QNA
+  steps:
+  - intent: qn
+  - action: actions.GetAnswer
+
+- rule: Greet
+  steps:
+  - intent: greet
+  - action: actions.Greet
+
+- rule: Buy Now
+  steps:
+  - intent: buy_now
+  - action: actions.Buy
+
+# - rule: API
+#   steps:
+#   - intent: qnapi
+#   - action: actions.ApiAnswer
+
+- rule: Health Insurance
+  steps:
+  - intent: health_insurance
+  - action: actions.HealthInsurance
+
+- rule: Motor Insurance
+  steps:
+  - intent: motor_insurance
+  - action: actions.MotorInsurance
+
+- rule: Insurance 
+  steps:
+  - intent: insurance
+  - action: actions.Insurance
+
+
+- rule: Activate form 1
+  steps:
+  - intent: claim_details
+  - action: name_form
+  - active_loop: name_form
+
+- rule: Submit form 1
+  condition:
+  - active_loop: name_form
+  steps:
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slots_values
+  - action: actions.PostClaimDesc
+
+- rule: Activate form 2
+  steps:
+  - intent: insurance_adult
+  - action: insurance_adult_form
+  - active_loop: insurance_adult_form
+
+- rule: Submit form 2
+  condition:
+  - active_loop: insurance_adult_form
+  steps:
+  - action: insurance_adult_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  #- action: utter_slots_values
+  - action: actions.PostHealthInsuDesc
+
+- rule: Activate form 3
+  steps:
+  - intent: motor_four
+  - action: motor_four_form
+  - active_loop: motor_four_form
+
+- rule: Submit form 3
+  condition:
+  - active_loop: motor_four_form
+  steps:
+  - action: motor_four_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  #- action: utter_slots_values
+  - action: actions.PostMotorFourDesc
+
+- rule: Activate form 4
+  steps:
+  - intent: motor_two
+  - action: motor_two_form
+  - active_loop: motor_two_form
+
+- rule: Submit form 4
+  condition:
+  - active_loop: motor_two_form
+  steps:
+  - action: motor_two_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  #- action: utter_slots_values
+  - action: actions.PostMotorTwoDesc
+
+- rule: hl1
+  steps:
+  - intent: hl1
+  - action: actions.PostClaimDesc
+
+- rule: hl2
+  steps:
+  - intent: hl2
+  - action: actions.PostClaimDesc
+
+
+- rule: ml1
+  steps:
+  - intent: ml1
+  - action: actions.PostClaimDesc
+
+
+- rule: ml2
+  steps:
+  - intent: ml2
+  - action: actions.PostClaimDesc
